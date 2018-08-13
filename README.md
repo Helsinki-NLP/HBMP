@@ -3,12 +3,14 @@
 To replicate the results of our paper, follow the steps below.
 
 **Install dependencies**
-* Pytorch
-* Numpy
-* Torchtext (for preprocessing)
-* Spacy (for tokenization)
 
-**Download and prepare datasets**
+The code has been tested with the following versions:
+* Pytorch (0.3.1)
+* Numpy (1.14.3)
+* Torchtext (for preprocessing) (0.2.1)
+* Spacy (for tokenization) (2.0.11)
+
+**Download and prepare the datasets**
 
 ```console
 sh download_data.sh
@@ -56,7 +58,7 @@ python3 train.py \
 To rerproduce the results for the other datasets, change the --corpus option to one of the following breaking_nli, multinli_matched, multinli_mismatched, scitail, all_nli.
 
 
-To train the InferSent model with our implementation use the train_infersent.sh script.
+In our paper some of the results for InferSent model were obtained using our implementation of the model. To train the InferSent model with our implementation use the train_infersent.sh script. See the paper for more details.
 
 ```console
 python3 train.py \
