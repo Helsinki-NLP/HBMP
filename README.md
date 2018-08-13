@@ -4,7 +4,8 @@ To replicate the results of our paper, follow the steps below.
 
 **Install dependencies**
 
-The code has been tested with the following versions:
+The following dependencies are required (versions used in brackets):
+* Python (3.5.3)
 * Pytorch (0.3.1)
 * Numpy (1.14.3)
 * Torchtext (for preprocessing) (0.2.1)
@@ -16,11 +17,11 @@ The code has been tested with the following versions:
 sh download_data.sh
 ```
 This will download the needed datasets and word embeddings, including:
-* GloVe 840B 300D word embeddings (https://nlp.stanford.edu/projects/glove/)
-* SNLI (https://nlp.stanford.edu/projects/snli/)
-* MultiNLI (https://www.nyu.edu/projects/bowman/multinli/)
-* SciTail (http://data.allenai.org/scitail/)
-* Breaking NLI (https://github.com/BIU-NLP/Breaking_NLI)
+* [GloVe 840B 300D](https://nlp.stanford.edu/projects/glove/)
+* [SNLI](https://nlp.stanford.edu/projects/snli/)
+* [MultiNLI](https://www.nyu.edu/projects/bowman/multinli/)
+* [SciTail](http://data.allenai.org/scitail/)
+* [Breaking NLI](https://github.com/BIU-NLP/Breaking_NLI)
 
 **Train and test HBMP**
 
@@ -43,7 +44,7 @@ python3 train.py \
   --word_embedding glove.840B.300d \
   --embed_dim 300 \
   --fc_dim 600 \
-  --hidden_dim 600 \
+  --hidden_dim 1200 \
   --layers 1 \
   --dropout 0.1 \
   --learning_rate 0.0005 \
@@ -58,7 +59,7 @@ python3 train.py \
 To rerproduce the results for the other datasets, change the --corpus option to one of the following breaking_nli, multinli_matched, multinli_mismatched, scitail, all_nli.
 
 
-In our paper some of the results for InferSent model were obtained using our implementation of the model. To train the InferSent model with our implementation use the train_infersent.sh script. See the paper for more details.
+In our paper some of the results for [InferSent](https://github.com/facebookresearch/InferSent) model were obtained using our implementation of the model. To train the InferSent model with our implementation use the train_infersent.sh script. See the paper for more details. 
 
 ```console
 python3 train.py \

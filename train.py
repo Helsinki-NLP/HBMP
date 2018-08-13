@@ -31,7 +31,7 @@ parser.add_argument("--encoder_type",
                     choices=['BiLSTMMaxPoolEncoder',
                              'LSTMEncoder',
                              'HBMP',
-                             'ModifiedHBiLSTMEncoder'],
+                             'ModifiedHBMPEncoder'],
                     default='HBMP')
 parser.add_argument("--activation",
                     type=str,
@@ -127,12 +127,15 @@ def main():
     inputs = data.Field(lower=config.lower, tokenize='spacy')
     labels = data.Field(sequential=False, unk_token=None)
     category_field = data.Field(sequential=False)
+    id_field = data.Field(sequential=False, unk_token=None)
 
 
     if config.corpus == 'multinli_matched':
-        train, dev, test = MultiNLI.splits_matched(inputs, label)
+        train, dev, test = MultiNLI.splits_matched(inputs, labels, id_field)
+        id_field.build_vocab(train, dev, test)
     elif config.corpus == 'multinli_mismatched':
-        train, dev, test = MultiNLI.splits_mismatched(inputs, labels)
+        train, dev, test = MultiNLI.splits_mismatched(inputs, labels, id_field)
+        id_field.build_vocab(train, dev, test)
     elif config.corpus == 'scitail':
         train, dev, test = SciTail.splits(inputs, labels)
     elif config.corpus == 'all_nli':
