@@ -25,8 +25,6 @@ wget http://www.nyu.edu/projects/bowman/multinli/multinli_1.0.zip
 unzip -a multinli_1.0.zip -d .data/multinli/
 rm -f multinli_1.0.zip
 echo -e "\nDone!"
-cp multinli_test/multinli_0.9_test_mismatched_unlabeled.jsonl .data/multinli/multinli_1.0/
-cp multinli_test/multinli_0.9_test_matched_unlabeled.jsonl .data/multinli/multinli_1.0/
 
 # SNLI
 echo -e "\nDownloading and unzipping SNLI to .data\n"
