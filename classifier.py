@@ -24,7 +24,7 @@ class FCClassifier(nn.Module):
         if self.config.encoder_type == 'BiLSTMMaxPoolEncoder':
             self.seq_in_size *= 2
         elif self.config.encoder_type == 'HBMP' or self.config.encoder_type == 'ModifiedHBMPEncoder':
-            self.seq_in_size *= 8
+            self.seq_in_size *= 6
         self.mlp = nn.Sequential(
             nn.Dropout(p=self.dropout),
             nn.Linear(self.seq_in_size, self.fc_dim),

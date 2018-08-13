@@ -1,6 +1,6 @@
 # Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture (HMBM)
 
-To replicate the results from our paper, follow the steps below.
+To replicate the results of our paper, follow the steps below.
 
 **Install dependencies**
 * Pytorch
@@ -53,4 +53,30 @@ python3 train.py \
   --save_path results \
   --seed 1234
   ```
-To rerproduce the results for other datasets, change the --corpus option to one of the following breaking_nli, multinli_matched, multinli_mismatched, scitail, all_nli.
+To rerproduce the results for the other datasets, change the --corpus option to one of the following breaking_nli, multinli_matched, multinli_mismatched, scitail, all_nli.
+
+
+To train the InferSent model with our implementation use the train_infersent.sh script.
+
+```console
+python3 train.py \
+  --epochs 20 \
+  --batch_size 64 \
+  --corpus snli \
+  --encoder_type BiLSTMMaxPoolEncoder \
+  --activation tanh \
+  --optimizer sgd \
+  --word_embedding glove.840B.300d \
+  --embed_dim 300 \
+  --fc_dim 512 \
+  --hidden_dim 2048 \
+  --layers 1 \
+  --dropout 0 \
+  --learning_rate 0.1 \
+  --lr_patience 1 \
+  --lr_decay 0.99 \
+  --lr_reduction_factor 0.2 \
+  --save_path results \
+  --seed 1234
+  ```
+
