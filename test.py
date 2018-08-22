@@ -58,6 +58,7 @@ def main():
         train, dev, test = SciTail.splits(inputs, labels)
     elif config.corpus == 'all_nli':
         train, dev, test = AllNLI.splits(inputs, labels)
+        id_field.build_vocab(train, dev, test)
     elif config.corpus == 'breaking_nli':
         train, dev, test = BreakingNLI.splits(inputs, labels, category_field)
         category_field.build_vocab(test)
@@ -87,17 +88,19 @@ def main():
 
     if config.corpus == 'multinli_mismatched' or config.corpus == 'multinli_matched':
         f.write('pairID,gold_label\n')
-    n = 0
 
-    uid = 0
-    print('PREMISE | HYPOTHESIS | PREDICTION | RESULT | GOLD LABEL')
-    for test_batch_idx,  test_batch in enumerate(test_iter):
-
+    print('ID | PREMISE | HYPOTHESIS | PREDICTION | RESULT | GOLD LABEL')
+    for test_batch_idx, test_batch in enumerate(test_iter):
         # Make predictions
         answer = test_model(test_batch)
         # Keep track of location. Start form first item of the batch
+        uid = 1+test_batch_idx*config.batch_size
         # Print the premise
         for i in range(test_batch.batch_size):
+            if config.corpus == 'scitail' or config.corpus == 'breaking_nli':
+                print('{} |'.format(i+uid), end=' ')
+            else:
+                print('{} |'.format(id_field.vocab.itos[test_batch.pair_id[i].data[0]]), end=' ')
             for prem in test_batch.premise.transpose(0,1)[i]:
                 x = prem.data[0]
                 if not inputs.vocab.itos[x] == '<pad>':
@@ -117,12 +120,15 @@ def main():
                     print(labels.vocab.itos[j], end=' ')
                     if j == test_batch.label[i].data[0]:
                         print('| CORRECT |', end=' ')
-                        print(labels.vocab.itos[test_batch.label[i].data[0]])
+                        print(labels.vocab.itos[test_batch.label[i].data[0]], end=' ')
                     else:
                         print('| INCORRECT |', end=' ')
-                        print(labels.vocab.itos[test_batch.label[i].data[0]])
-            # if config.corpus == 'snli_lexical':
-            #     print('| {}'.format(category_field.vocab.itos[test_batch.category[i].data[0]]))
+                        print(labels.vocab.itos[test_batch.label[i].data[0]], end=' ')
+            if config.corpus == 'breaking_nli':
+                print('| {}'.format(category_field.vocab.itos[test_batch.category[i].data[0]]))
+            else:
+                print('')
+
 
         # Calculate the accuracy
         n_test_correct += (torch.max(answer, 1)[1].view(test_batch.label.size()).data == \

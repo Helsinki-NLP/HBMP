@@ -1,12 +1,12 @@
 #!/bin/bash -l
-#SBATCH -J SNLI_HBMP_2400D
+#SBATCH -J SCITAIL_HBMP_2400D
 #SBATCH -o out_HBMP_2400D_%J.txt
 #SBATCH -e err_HBMP_2400D_%J.txt
 #SBATCH -p gpu
 #SBATCH -N 1
 #SBATCH -n 1
 #SBATCH -t 08:00:00
-#SBATCH --mem-per-cpu=64000
+#SBATCH --mem-per-cpu=32000
 #SBATCH --gres=gpu:p100:1
 # run command
 module purge
@@ -16,7 +16,7 @@ module list
 srun python3 train.py \
   --epochs 20 \
   --batch_size 64 \
-  --corpus snli \
+  --corpus scitail \
   --encoder_type HBMP \
   --activation leakyrelu \
   --optimizer adam \

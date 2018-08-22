@@ -30,8 +30,7 @@ parser.add_argument("--encoder_type",
                     type=str,
                     choices=['BiLSTMMaxPoolEncoder',
                              'LSTMEncoder',
-                             'HBMP',
-                             'ModifiedHBMPEncoder'],
+                             'HBMP'],
                     default='HBMP')
 parser.add_argument("--activation",
                     type=str,
@@ -56,7 +55,7 @@ parser.add_argument('--fc_dim',
                     default=600)
 parser.add_argument('--hidden_dim',
                     type=int,
-                    default=1200)
+                    default=600)
 parser.add_argument('--layers',
                     type=int,
                     default=1)
@@ -139,7 +138,8 @@ def main():
     elif config.corpus == 'scitail':
         train, dev, test = SciTail.splits(inputs, labels)
     elif config.corpus == 'all_nli':
-        train, dev, test = AllNLI.splits(inputs, labels)
+        train, dev, test = AllNLI.splits(inputs, labels, id_field)
+        id_field.build_vocab(train, dev, test)
     elif config.corpus == 'breaking_nli':
         train, dev, test = BreakingNLI.splits(inputs, labels, category_field)
         category_field.build_vocab(test)
