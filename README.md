@@ -2,12 +2,14 @@
 
 Recurrent neural networks have proven to be very effective for natural language inference tasks. We build on top of one such model, namely BiLSTM with max pooling, and show that adding a hierarchy of BiLSTM and max pooling layers yields state of the art results for the SNLI sentence encoding-based models and the SciTail dataset, as well as provides strong results for the MultiNLI dataset.  We also show that our sentence embeddings can be utilized in a wide variety of transfer learning tasks, outperforming InferSent on 7 out of 10 and SkipThought on 8 out of 9 SentEval sentence embedding evaluation tasks. Furthermore, our model beats the InferSent model in 8 out of 10 recently published SentEval probing tasks designed to evaluate sentence embeddings' ability to capture some of the important linguistic properties of sentences.
 
-**Key results**
+## Key Results
+
+**Key NLI results**
 
 * SNLI: 86.6% (1200D model)
 * SciTail: 86.0% (1200D model)
 
-**SentEval**
+**SentEval results**
 
 Results for the [SentEval](https://github.com/facebookresearch/SentEval) sentence embedding evaluation library.
 
@@ -18,7 +20,7 @@ Results for the [SentEval](https://github.com/facebookresearch/SentEval) sentenc
 |*1200D HBMP* | 81.5 | 86.4 | 92.7 |  89.8 | 83.6 |  86.4 |  74.6/82.0 | 0.876 | 85.3 | .70/.66 |
 |*2400D HBMP* | **81.7** | **87.0** | **93.7** | **90.3** | 84.0 | **88.8** | **76.7/83.4** | 0.876 | 84.7 |  **.71/.68** |
 
-**SentEval probing tasks**
+**SentEval probing task results**
 
 |Model | SentLen | WC | TreeDepth | TopConst | BShift | Tense | SubjNum | ObjNum | SOMO | CoordInv |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -26,6 +28,7 @@ Results for the [SentEval](https://github.com/facebookresearch/SentEval) sentenc
 |*1200D HBMP* | **75.9** |  84.1 |  42.9 |  76.6 |  64.3 |  86.2 |  83.7 |  79.3 |  58.9 |  68.5|
 |*Our 2400D* |  75.0 |  85.3 | **43.8** | **77.2** | **65.6** | **88.0** | **87.0** | **81.8** |  59.0 | **70.8** |
 
+## Instructions
 
 To replicate the results of our paper, follow the steps below.
 
@@ -116,7 +119,7 @@ python3 train.py \
   --seed 1234
   ```
 
-**References**
+## References
 
 Please cite our paper if you find this code useful.
 
