@@ -89,7 +89,7 @@ Please cite our paper if you find this code useful.
 
 [1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann, [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture]()
 
-```console
+```
 @article{talman2018hbmp,
   title={Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture},
   author={Talman, Aarne and Yli-Jyr\"a, Anssi and Tiedemann, J\"org},
