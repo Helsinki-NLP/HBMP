@@ -50,7 +50,7 @@ python3 train.py \
   --word_embedding glove.840B.300d \
   --embed_dim 300 \
   --fc_dim 600 \
-  --hidden_dim 1200 \
+  --hidden_dim 600 \
   --layers 1 \
   --dropout 0.1 \
   --learning_rate 0.0005 \
