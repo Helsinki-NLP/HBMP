@@ -1,5 +1,32 @@
 # Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture (HBMP)
 
+Recurrent neural networks have proven to be very effective for natural language inference tasks. We build on top of one such model, namely BiLSTM with max pooling, and show that adding a hierarchy of BiLSTM and max pooling layers yields state of the art results for the SNLI sentence encoding-based models and the SciTail dataset, as well as provides strong results for the MultiNLI dataset.  We also show that our sentence embeddings can be utilized in a wide variety of transfer learning tasks, outperforming InferSent on 7 out of 10 and SkipThought on 8 out of 9 SentEval sentence embedding evaluation tasks. Furthermore, our model beats the InferSent model in 8 out of 10 recently published SentEval probing tasks designed to evaluate sentence embeddings' ability to capture some of the important linguistic properties of sentences.
+
+**Key results**
+
+* SNLI: 86.6% (1200D model)
+* SciTail: 86.0% (1200D model)
+
+*SentEval (2400D model)*
+
+|Model | MR | CR | SUBJ | MPQA | SST | TREC | MRPC | SICK-R | SICK-E | STS14|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | ---|
+|InferSent | 81.1 | 86.3 | 92.4 | 90.2 | 84.6 |  88.2 | 76.2/83.1 | 0.884 | 86.3 | .70/.67|
+|SkipThought | 79.4 | 83.1 | 93.7 | 89.3 | 82.9 | 88.4 | - | 0.858 | 79.5 | .44/.45 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | ---|
+|Our 1200D HBMP | 81.5 | 86.4 | 92.7 |  89.8 | 83.6 |  86.4 |  74.6/82.0 | 0.876 | 85.3 | .70/.66|
+|Our 2400D HBMP | 81.7 | 87.0 | 93.7 | 90.3 | 84.0 | 88.8 | 76.7/83.4 | 0.876 | 84.7 |  .71/.68|
+
+*SentEval probing tasks (2400D model)*
+
+|Model | SentLen | WC | TreeDepth | TopConst | BShift | Tense | SubjNum | ObjNum | SOMO | CoordInv |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| InferSent |  71.7 | 87.3 |  41.6 |  70.5 |  65.1 |  86.7 |  80.7 |  80.3 | 62.1 |  66.8 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|Our 1200D HBMP | 75.9 |  84.1 |  42.9 |  76.6 |  64.3 |  86.2 |  83.7 |  79.3 |  58.9 |  68.5|
+|Our 2400D HBMP |  75.0 |  85.3 | 43.8 | 77.2 | 65.6 | 88.0 | 87.0 | 81.8 |  59.0 | 70.8 |
+
+
 To replicate the results of our paper, follow the steps below.
 
 **Install dependencies**
