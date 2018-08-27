@@ -1,6 +1,6 @@
 # Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture (HBMP)
 
-Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann, [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture]()
+Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2018. [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture]()
 
 **Abstract:** Recurrent neural networks have proven to be very effective for natural language inference tasks. We build on top of one such model, namely BiLSTM with max pooling, and show that adding a hierarchy of BiLSTM and max pooling layers yields state of the art results for the SNLI sentence encoding-based models and the SciTail dataset, as well as provides strong results for the MultiNLI dataset.  We also show that our sentence embeddings can be utilized in a wide variety of transfer learning tasks, outperforming InferSent on 7 out of 10 and SkipThought on 8 out of 9 SentEval sentence embedding evaluation tasks. Furthermore, our model beats the InferSent model in 8 out of 10 recently published SentEval probing tasks designed to evaluate sentence embeddings' ability to capture some of the important linguistic properties of sentences.
 
@@ -125,7 +125,7 @@ python3 train.py \
 
 Please cite our paper if you find this code useful.
 
-[1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann, [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture]()
+[1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2018. [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture]()
 
 ```
 @article{talman2018hbmp,
