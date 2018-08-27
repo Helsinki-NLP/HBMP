@@ -1,4 +1,4 @@
-# Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture (HMBM)
+# Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture (HBMP)
 
 To replicate the results of our paper, follow the steps below.
 
