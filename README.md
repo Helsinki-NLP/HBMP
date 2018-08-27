@@ -7,22 +7,24 @@ Recurrent neural networks have proven to be very effective for natural language 
 * SNLI: 86.6% (1200D model)
 * SciTail: 86.0% (1200D model)
 
-*SentEval (2400D model)*
+**SentEval**
+
+Results for the [SentEval](https://github.com/facebookresearch/SentEval) sentence embedding evaluation library.
 
 |Model | MR | CR | SUBJ | MPQA | SST | TREC | MRPC | SICK-R | SICK-E | STS14 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |  --- |
-|InferSent | 81.1 | 86.3 | 92.4 | 90.2 | 84.6 |  88.2 | 76.2/83.1 | 0.884 | 86.3 | .70/.67 |
-|SkipThought | 79.4 | 83.1 | 93.7 | 89.3 | 82.9 | 88.4 | - | 0.858 | 79.5 | .44/.45 |
-|Our 1200D HBMP | 81.5 | 86.4 | 92.7 |  89.8 | 83.6 |  86.4 |  74.6/82.0 | 0.876 | 85.3 | .70/.66 |
-|Our 2400D HBMP | 81.7 | 87.0 | 93.7 | 90.3 | 84.0 | 88.8 | 76.7/83.4 | 0.876 | 84.7 |  .71/.68 |
+|InferSent | 81.1 | 86.3 | 92.4 | 90.2 | **84.6** |  88.2 | 76.2/83.1 | **0.884** | **86.3** | .70/.67 |
+|SkipThought | 79.4 | 83.1 | **93.7** | 89.3 | 82.9 | 88.4 | - | 0.858 | 79.5 | .44/.45 |
+|*1200D HBMP* | 81.5 | 86.4 | 92.7 |  89.8 | 83.6 |  86.4 |  74.6/82.0 | 0.876 | 85.3 | .70/.66 |
+|*2400D HBMP* | **81.7** | **87.0** | **93.7** | **90.3** | 84.0 | **88.8** | **76.7/83.4** | 0.876 | 84.7 |  **.71/.68** |
 
-*SentEval probing tasks (2400D model)*
+**SentEval probing tasks**
 
 |Model | SentLen | WC | TreeDepth | TopConst | BShift | Tense | SubjNum | ObjNum | SOMO | CoordInv |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| InferSent |  71.7 | 87.3 |  41.6 |  70.5 |  65.1 |  86.7 |  80.7 |  80.3 | 62.1 |  66.8 |
-|Our 1200D HBMP | 75.9 |  84.1 |  42.9 |  76.6 |  64.3 |  86.2 |  83.7 |  79.3 |  58.9 |  68.5|
-|Our 2400D HBMP |  75.0 |  85.3 | 43.8 | 77.2 | 65.6 | 88.0 | 87.0 | 81.8 |  59.0 | 70.8 |
+| InferSent |  71.7 | **87.3** |  41.6 |  70.5 |  65.1 |  86.7 |  80.7 |  80.3 | **62.1** |  66.8 |
+|*1200D HBMP* | **75.9** |  84.1 |  42.9 |  76.6 |  64.3 |  86.2 |  83.7 |  79.3 |  58.9 |  68.5|
+|*Our 2400D* |  75.0 |  85.3 | **43.8** | **77.2** | **65.6** | **88.0** | **87.0** | **81.8** |  59.0 | **70.8** |
 
 
 To replicate the results of our paper, follow the steps below.
