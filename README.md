@@ -9,7 +9,13 @@ The following dependencies are required (versions used in brackets):
 * Pytorch (0.3.1)
 * Numpy (1.14.3)
 * Torchtext (for preprocessing) (0.2.1)
-* Spacy (for tokenization) (2.0.11)
+* SpaCy (for tokenization) (2.0.11)
+
+For SpaCy you need to download the English model
+
+```console
+python -m spacy download en
+```
 
 **Download and prepare the datasets**
 
