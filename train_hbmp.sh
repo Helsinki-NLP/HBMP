@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 python3 train.py \
   --epochs 20 \
