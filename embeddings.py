@@ -7,8 +7,7 @@ from torch.autograd import Variable
 
 class SentenceEmbedding(nn.Module):
     """
-    Prepare and encode sentence embeddings with (Bi)LSTM encoder and max
-    pooling
+    Prepare and encode sentence embeddings
     """
     def __init__(self, config):
         super(SentenceEmbedding, self).__init__()
