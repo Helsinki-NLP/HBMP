@@ -52,7 +52,7 @@ python -m spacy download en
 **Download and prepare the datasets**
 
 ```console
-sh download_data.sh
+./download_data.sh
 ```
 This will download the needed datasets and word embeddings, including:
 * [GloVe 840B 300D](https://nlp.stanford.edu/projects/glove/)
@@ -66,7 +66,7 @@ This will download the needed datasets and word embeddings, including:
 Run the train_hbmp.sh script to reproduce the NLI results for the HBMP model
 
 ```console
-sh train_hbmp.sh
+./train_hbmp.sh
 ```
 
 Default settings for the SNLI dataset are as follows:
