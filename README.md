@@ -1,8 +1,8 @@
-# Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture (HBMP)
+# Sentence Embeddings in NLI with Iterative Refinement Encoders
 
-Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2018. [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture](https://arxiv.org/pdf/1808.08762.pdf)
+Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2019. [Sentence Embeddings in NLI with Iterative Refinement Encoders](https://arxiv.org/pdf/1808.08762.pdf). Natural Language Engineering
 
-**Abstract:** Recurrent neural networks have proven to be very effective for natural language inference tasks. We build on top of one such model, namely BiLSTM with max pooling, and show that adding a hierarchy of BiLSTM and max pooling layers yields state of the art results for the SNLI sentence encoding-based models and the SciTail dataset, as well as provides strong results for the MultiNLI dataset.  We also show that our sentence embeddings can be utilized in a wide variety of transfer learning tasks, outperforming InferSent on 7 out of 10 and SkipThought on 8 out of 9 SentEval sentence embedding evaluation tasks. Furthermore, our model beats the InferSent model in 8 out of 10 recently published SentEval probing tasks designed to evaluate sentence embeddings' ability to capture some of the important linguistic properties of sentences.
+**Abstract:** Sentence-level representations are necessary for various NLP tasks. Recurrent neural networks have proven to be very effective in learning distributed representations and can be trained efficiently on natural language inference tasks. We build on top of one such model and propose a hierarchy of BiLSTM and max pooling layers that implements an iterative refinement strategy and yields state of the art results on the SciTail dataset as well as strong results for SNLI and MultiNLI. We can show that the sentence embeddings learned in this way can be utilized in a wide variety of transfer learning tasks, outperforming InferSent on 7 out of 10 and SkipThought on 8 out of 9 SentEval sentence embedding evaluation tasks. Furthermore, our model beats the InferSent model in 8 out of 10 recently published SentEval probing tasks designed to evaluate sentence embeddings' ability to capture some of the important linguistic properties of sentences.
 
 ## Key Results
 
@@ -128,10 +128,10 @@ Please cite our paper if you find this code useful.
 [1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2018. [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture](https://arxiv.org/pdf/1808.08762.pdf)
 
 ```
-@article{talman2018hbmp,
-  title={Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture},
+@article{talman2019hbmp,
+  title={Sentence Embeddings in NLI with Iterative Refinement Encoders},
   author={Talman, Aarne and Yli-Jyr\"a, Anssi and Tiedemann, J\"org},
-  journal={arXiv preprint arXiv:1808.08762},
-  year={2018}
+  journal={JNLE},
+  year={2019}
 }
 ```
