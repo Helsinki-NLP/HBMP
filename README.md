@@ -125,7 +125,7 @@ python3 train.py \
 
 Please cite our paper if you find this code useful.
 
-[1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2018. [Natural Language Inference with Hierarchical BiLSTM Max Pooling Architecture](https://arxiv.org/pdf/1808.08762.pdf)
+[1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2019. [Sentence Embeddings in NLI with Iterative Refinement Encoders](https://arxiv.org/pdf/1808.08762.pdf). Natural Language Engineering.
 
 ```
 @article{talman2019hbmp,
