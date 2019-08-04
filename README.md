@@ -1,6 +1,6 @@
 # Sentence Embeddings in NLI with Iterative Refinement Encoders
 
-Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2019. [Sentence Embeddings in NLI with Iterative Refinement Encoders](https://arxiv.org/pdf/1808.08762.pdf). Natural Language Engineering
+Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2019. [Sentence Embeddings in NLI with Iterative Refinement Encoders](https://arxiv.org/pdf/1808.08762.pdf). Natural Language Engineering 25 (4). 467-482.
 
 **Abstract:** Sentence-level representations are necessary for various NLP tasks. Recurrent neural networks have proven to be very effective in learning distributed representations and can be trained efficiently on natural language inference tasks. We build on top of one such model and propose a hierarchy of BiLSTM and max pooling layers that implements an iterative refinement strategy and yields state of the art results on the SciTail dataset as well as strong results for SNLI and MultiNLI. We can show that the sentence embeddings learned in this way can be utilized in a wide variety of transfer learning tasks, outperforming InferSent on 7 out of 10 and SkipThought on 8 out of 9 SentEval sentence embedding evaluation tasks. Furthermore, our model beats the InferSent model in 8 out of 10 recently published SentEval probing tasks designed to evaluate sentence embeddings' ability to capture some of the important linguistic properties of sentences.
 
@@ -125,13 +125,16 @@ python3 train.py \
 
 Please cite our paper if you find this code useful.
 
-[1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2019. [Sentence Embeddings in NLI with Iterative Refinement Encoders](https://arxiv.org/pdf/1808.08762.pdf). Natural Language Engineering.
+[1] Aarne Talman, Anssi Yli-Jyrä and Jörg Tiedemann. 2019. [Sentence Embeddings in NLI with Iterative Refinement Encoders](https://arxiv.org/pdf/1808.08762.pdf). Natural Language Engineering. 25 (4), 467-482.
 
 ```
-@article{talman2019hbmp,
-  title={Sentence Embeddings in NLI with Iterative Refinement Encoders},
-  author={Talman, Aarne and Yli-Jyr\"a, Anssi and Tiedemann, J\"org},
-  journal={JNLE},
-  year={2019}
-}
+@article{talman_yli-jyra_tiedemann_2019, 
+  title={Sentence embeddings in {NLI} with iterative refinement encoders}, 
+  author={Talman, Aarne and Yli-Jyr\"a, Anssi and Tiedemann, J\"org}, 
+  journal={Natural Language Engineering}, 
+  volume={25},
+  number={4}, 
+  publisher={Cambridge University Press}, 
+  year={2019}, 
+  pages={467–482}}
 ```
