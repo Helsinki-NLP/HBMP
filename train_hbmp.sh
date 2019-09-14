@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python3 train.py \
+python train.py \
   --epochs 20 \
   --batch_size 64 \
   --corpus scitail \
