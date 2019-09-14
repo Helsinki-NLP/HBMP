@@ -297,9 +297,10 @@ def main():
                     n_dev_correct += (torch.max(answer, 1)[1].view(dev_batch.label.size()).data == \
                         dev_batch.label.data).sum()
                     dev_loss = criterion(answer, dev_batch.label)
-                    dev_losses.append(dev_loss.data[0])
+                    dev_losses.append(dev_loss.item())
 
                 dev_acc = 100. * n_dev_correct / len(dev)
+                dev_acc=dev_acc.item()
                 dev_accuracies.append(dev_acc)
 
                 print('\nDev loss: {}% - Dev accuracy: {}%'.format(round(100.*np.mean(dev_losses), 2), round(dev_acc, 2)))
