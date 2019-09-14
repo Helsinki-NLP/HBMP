@@ -370,9 +370,10 @@ def main():
                     n_test_correct += (torch.max(answer, 1)[1].view(test_batch.label.size()).data == \
                         test_batch.label.data).sum()
                     test_loss = criterion(answer, test_batch.label)
-                    test_losses.append(test_loss.data[0])
+                    test_losses.append(test_loss.item())
 
                 test_acc = 100. * n_test_correct / len(test)
+                test_acc=test_acc.item()
 
                 print('SUMMARY:')
                 print('Encoder: {}'.format(config.encoder_type))
