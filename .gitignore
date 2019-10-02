@@ -3,3 +3,5 @@ __pycache__/
 .data/
 .vector_cache/
 results/
+all_nli_vocab.pkl
+snli_vocab.pkl
