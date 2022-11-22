@@ -13,7 +13,8 @@ from torchtext import data
 from torchtext import datasets
 from classifier import NLIModel
 from corpora import MultiNLI, SciTail, StanfordNLI, AllNLI, BreakingNLI
-
+import pdb
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = ArgumentParser(description='Helsinki NLI')
 parser.add_argument("--corpus",
@@ -163,7 +164,7 @@ def main():
 
     train_iter, dev_iter, test_iter = data.BucketIterator.splits((train, dev, test),
                                                                  batch_size=config.batch_size,
-                                                                 device=config.gpu)
+                                                                 device=device)
     config.embed_size = len(inputs.vocab)
     config.out_dim = len(labels.vocab)
     config.cells = config.layers
@@ -256,18 +257,18 @@ def main():
             model.train()
             optimizer.zero_grad()
             iterations += 1
-
             answer = model(batch)
             # sys.exit()
             # Calculate accuracy
+
             n_correct += (torch.max(answer, 1)[1].view(batch.label.size()).data == batch.label.data).sum()
             n_total += batch.batch_size
             train_acc = 100. * n_correct/n_total
-            train_accuracies.append(train_acc)
+            train_accuracies.append(train_acc.item())
 
             # Calculate loss
             loss = criterion(answer, batch.label)
-            all_losses.append(loss.data[0])
+            all_losses.append(loss.item())
 
             # Backpropagate and update the learning rate
             loss.backward()
@@ -296,9 +297,10 @@ def main():
                     n_dev_correct += (torch.max(answer, 1)[1].view(dev_batch.label.size()).data == \
                         dev_batch.label.data).sum()
                     dev_loss = criterion(answer, dev_batch.label)
-                    dev_losses.append(dev_loss.data[0])
+                    dev_losses.append(dev_loss.item())
 
                 dev_acc = 100. * n_dev_correct / len(dev)
+                dev_acc=dev_acc.item()
                 dev_accuracies.append(dev_acc)
 
                 print('\nDev loss: {}% - Dev accuracy: {}%'.format(round(100.*np.mean(dev_losses), 2), round(dev_acc, 2)))
@@ -368,9 +370,10 @@ def main():
                     n_test_correct += (torch.max(answer, 1)[1].view(test_batch.label.size()).data == \
                         test_batch.label.data).sum()
                     test_loss = criterion(answer, test_batch.label)
-                    test_losses.append(test_loss.data[0])
+                    test_losses.append(test_loss.item())
 
                 test_acc = 100. * n_test_correct / len(test)
+                test_acc=test_acc.item()
 
                 print('SUMMARY:')
                 print('Encoder: {}'.format(config.encoder_type))
